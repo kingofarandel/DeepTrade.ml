@@ -2,7 +2,7 @@
 
 Frontend template is using [Datta Able](https://appseed.us/product/react-node-js-datta-able) template.   
 **Datta Able** is an open-source **React Dashboard** that provides a colorful and modern design. Datta Able React Free is the most stylised React Free Admin Template, around all other admin templates in the market. It comes with high feature-rich pages and components with fully developer-centric code. The product comes with a simple JWT authentication flow: login/register/logout.
-
+ 
 <br />
 
 > Features
