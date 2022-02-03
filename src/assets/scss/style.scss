@@ -1,0 +1,381 @@
+/**======================================================================
+=========================================================================
+Template Name: Datta Able Admin Template
+Author: Codedthemes
+supports: https://codedthemes.support-hub.io/
+File: style.css
+=========================================================================
+=========================================================================
+  == Table of Contents==
+	- Generic classes
+		-	Margin, Padding, Font class, text align, position, floating, overflow, background class, text color, display class, boarder class
+	- Theme Elements
+		-	Accordion, Button, tabs, typography, buttons, box shadow, Lable & Badges, Alert, Pagination, Breadcumb, Cards, Collapse,
+        -   Carousel, Grid, Progress, Model, tooltip, popover, Datepicker, Gridstack, lightbox, notification, Nestable, pnotify, rating,
+        -   Rangeslider, Slider, Syntax Highlighter, Tour, Treeview, Toolbar, Session Timeout, Session idle Timeout, offline, Animation
+    - Forms
+        -   Forms Elements, Advance Form Control, Validation, Masking, Wizard, Picker, Select
+	- Pages
+		-   Chat, authentication, Maintenance, Maps, Landingpage messages, task, Todo, Notes, Charts, Icons, Gallery, Editors,
+        -   Invoice, Full Calender, File Upload,
+=================================================================================
+=================================================================================== */
+@import '~bootstrap/dist/css/bootstrap';
+// General theme contents
+@import 'partials/variables';
+@import 'partials/general';
+@import 'partials/generic';
+@import 'partials/mixins/function';
+
+// icon
+@import 'partials/font/next-icon';
+@import 'partials/font/feather';
+@import 'partials/font/fontawesome';
+@import 'partials/font/flaticon';
+@import 'partials/font/cryptofont';
+
+// important Element
+@import 'partials/menu/menu-lite';
+@import 'partials/widget/widget';
+
+// Theme Element
+@import 'partials/theme-elements/form';
+@import 'partials/theme-elements/labels-badges';
+@import 'partials/theme-elements/data-tables';
+@import 'partials/theme-elements/authentication';
+@import 'partials/theme-elements/button';
+@import 'partials/theme-elements/breadcrumb-pagination';
+
+// Other
+@import 'partials/other/chat';
+@import 'partials/third-party/third-party';
+
+
+
+.pricecard {
+  --pricecard-bg-color: rgb(24 24 39/15%);
+}
+.emphasised {
+  --bg-color: #3f4d67;
+  --text-color: #fff;
+}
+
+
+
+
+// Price card design 
+
+
+
+section.pricing {
+  display: flex;
+  flex-direction: column;
+  // width: 100vw;
+  align-items: center;
+  // height: 100vh;
+  justify-content: center;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.section-title-group {
+  text-align: center;
+  width: auto;
+  max-width: 420px;
+  padding-bottom: 46px;
+}
+
+h2.section-title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.05%;
+}
+p.section-sub-title {
+  opacity: 0.8;
+}
+
+.deals-pricecard-group {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+}
+
+.pricecard {
+  width: 180px;
+  background: var(--pricecard-bg-color);
+  color: var(--text-color);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+}
+
+/* .emphasised {
+  background: var(--em-bg-color);
+} */
+
+.emphasised {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.highlight:before {
+  content: "Best price";
+  display: flex;
+  height: 24px;
+  width: fit-content;
+  background: #a0e0b2;
+  color: #10101c;
+  padding: 2px 16px;
+  border-radius: 16px;
+  align-items: center;
+  position: absolute;
+  margin: 0 auto;
+  top: -12px;
+  left: 25%;
+}
+
+h3.pricecard-title {
+  font-size: 18px;
+  max-width: 80%;
+  line-height: 24px;
+  color: white;
+  margin-bottom: 24px;
+  padding: 8px;
+  flex: 1;
+}
+
+p.price-tag {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 16px;
+  padding: 8px;
+  flex: 2;
+}
+
+.price-tag span {
+  font-size: 12px;
+  display: block;
+  opacity: 0.6;
+}
+
+.pricecard-footer {
+  margin-top: 8px;
+  display: flex;
+  width: 100%;
+  flex: 1;
+  align-items: flex-end;
+}
+
+.pricecard-footer a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  opacity: 0.6;
+  display: flex;
+  height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+a.link-button:after {
+  content: "";
+  height: 24px;
+  width: 24px;
+  background: url(https://raw.githubusercontent.com/rahulkuulsingh/ui-components/main/assets/arrow-right.svg);
+  filter: invert(1);
+}
+
+a.link-button:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.addborder{
+  border-bottom: 4px solid #3f4d67;
+  padding-bottom: 6px;
+  width: 30%;
+
+  margin-top: 20px;
+}
+
+.headingtext{
+  font-size: 40px;
+  color: black;
+  font-weight: bolder;
+  padding: 0px;
+  margin: 0px;
+}
+
+.flexClass{
+  display: flex;
+}
+
+.spanflex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-left: 11px;
+}
+
+
+.plantext{
+  margin-top: 40px;
+}
+
+// Style
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #556EE6 !important; 
+  background-color:transparent !important;
+  border-color: #dee2e600 #dee2e600 rgba(255, 255, 255, 0) !important; 
+  border-bottom: 1px solid #556EE6 !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link:hover {
+  color: #556EE6 !important; 
+  background-color:transparent !important;
+  border-color: #dee2e600 #dee2e600 rgba(255, 255, 255, 0) !important; 
+  border-bottom: 1px solid #556EE6 !important;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+  border-color: #e9ecef00 #e9ecef00 #dee2e600 !important;
+  color: #556EE6 !important; 
+  background-color:transparent !important;
+  border-color: #dee2e600 #dee2e600 rgba(255, 255, 255, 0) !important; 
+  border-bottom: 1px solid #556EE6 !important;
+}
+
+.page-block {
+  display: none !important;
+}
+
+.Btnaddmodel{
+  position: "absolute"  !important;
+  right: 2px !important; 
+}
+
+.Dashboardheading {
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 51px;
+  /* identical to box height */
+  margin: 10px;
+  letter-spacing: 0.02em; 
+}
+
+
+.card{
+background: #FFFFFF !important;
+border-radius: 10px !important;
+box-shadow: none !important ;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,400&family=Roboto:wght@100&display=swap');
+.textstyle{
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: calc(0.8vw + 0.8vh + 0.8vmin);
+  line-height: 51px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  font-weight: bolder;
+}
+
+// css 
+
+/* taeb-switch styles */
+.taeb-switch {
+  position: relative;
+}
+
+.taeb-switch:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  top: 0;
+  transition: left cubic-bezier(.88, -.35, .565, 1.35) .4s;
+  border-radius: 27.5px;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .1);
+  background-color: #3d90ef;
+  height: 100%;
+  z-index: 0;
+}
+
+.taeb-switch.left:after {
+  left: 0;
+}
+
+.taeb-switch.right:after {
+  left: 50%;
+}
+
+.taeb-switch .taeb {
+  display: inline-block;
+  width: 50%;
+  padding: 12px 0;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+  transition: color 200ms;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: normal;
+  user-select: none;
+}
+
+.taeb-switch .taeb.active {
+  color: #ffffff;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+
+.wrapper {
+  border-radius: 37px;
+  background-color: #f4f4f4;
+  padding: 8px;
+  width: 100%;
+  max-width: 316px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.headericon{
+  background: #FFFFFF !important;
+  border: 0.859649px solid #E1E1E1 !important;
+  box-sizing: border-box !important;
+  border-radius: 10.3158px !important;
+  padding: 6px !important;
+}
+
+.headericon::after{
+  display: none !important;
+}
+
+.pcoded-header .dropdown .dropdown-toggle:after{
+  display: none !important;
+}
+.pcoded-header .dropdown.drp-user.show:before{
+  background: rgb(57, 196, 128)  !important; 
+}
+
+
+.header_icon_img{
+  width: 16px;
+  height: 16px;
+}
