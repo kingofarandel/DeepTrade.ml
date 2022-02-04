@@ -34,7 +34,8 @@ function DrawingCanvas() {
 
     return (
         <Fragment>
-            <canvas id="mainCanvas" className='main-canvas-container' ref={canvasRef}></canvas>
+            <canvas id="mainCanvas" className='main-canvas-container' ref={canvasRef}>
+            </canvas>
             <div className='absolute'>Text</div>
         </Fragment>
     );
