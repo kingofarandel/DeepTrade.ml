@@ -40,6 +40,7 @@
         "redux-form": "^8.3.7",
         "redux-persist": "^6.0.0",
         "sass": "1.32.8",
+        "storm-react-diagrams": "^5.2.1",
         "styled-components": "^5.2.1",
         "web-vitals": "^1.1.0",
         "yup": "^0.32.9"
