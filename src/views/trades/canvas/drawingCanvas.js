@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
+import ReactModal from 'react-modal';
 import { gridData } from '../../../config/constant';
 
 import "beautiful-react-diagrams/styles.css";
@@ -59,6 +60,7 @@ function DrawingCanvas() {
     
     const [ready, setReady] = useState(false);
     const canvasRef = useRef();
+    const [showModal, setShowModal] = useState(false);
 
     const drawBoard = () => {
         const canvas = canvasRef.current;
@@ -86,21 +88,51 @@ function DrawingCanvas() {
     useEffect(() => {
         drawBoard();
 
-    }, [])
+    }, []);
+
+
+    const handleOpenModal = () => {
+        setShowModal(true);
+    }
+    
+    const handleCloseModal = () => {
+        setShowModal(false);
+    }
 
     
     return (
+        <>
         <Fragment>
-            <div id = "sporeContainer">
-                <canvas id="mainCanvas" className='main-canvas-container' ref={canvasRef}>
+            <div id = "sporeContainer" onDoubleClick={handleOpenModal}>
+                <canvas id= {showModal == true ?  "mainCanvas_hidden" : 'mainCanvas' } className='main-canvas-container' ref={canvasRef}>
                 </canvas>
-                <div className='absolute' >
+                <div className='relativeZ10' >
                     {ready == true && <UncontrolledDiagram />}
                 </div>
                 
             </div>
             
         </Fragment>
+        <div>
+        {ready == true &&
+            <ReactModal 
+            isOpen={showModal}
+            contentLabel="Minimal Modal Example"
+            className="Modal"
+            overlayClassName="Overlay"
+            onRequestClose={handleCloseModal}
+            >
+            <div className = "modal_head">DeepTrade.ML</div>
+            <div className = "modal_content">
+                <p>There are unsaved changes in this scenario</p>
+                <div onClick={handleCloseModal}>Save changes</div>
+                <div style={{ background: "#888"}} onClick={handleCloseModal}>Discard Changes</div>
+            </div>
+            
+            </ReactModal>
+        }
+        </div>
+        </>
     );
 }
 

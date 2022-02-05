@@ -25,11 +25,21 @@ nav > a:focus {
     background: white;
     width: 100%;
     height: 80vh;
-    z-index: 1;
+    z-index: 1 !important;
 }
 
-.absolute{
-    position: relative !important;
+#mainCanvas_hidden {
+    position: static;
+    background: white;
+    width: 100%;
+    height: 80vh;
+    z-index: 1 !important;
+}
+
+.relativeZ10{
+    position: absolute;
+    width: 100%;
+    height:80vh;
     z-index: 10 !important;
     
 }
@@ -37,4 +47,59 @@ nav > a:focus {
 .bi-diagram {
     background: none !important;
     box-shadow: none !important;
+}
+
+
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  /* padding: 1em; */
+  min-width: 30em;
+  max-width: 100%;
+  color: #000;
+  /* background-color: #fff; */
+  background: transparent;
+  /* border-radius: 1em; */
+  transform: translate(-50%, -50%);
+  outline: transparent;
+  z-index: 100 !important;
+}
+
+.modal_head {
+    background: linear-gradient(90.92deg, #495FCB 0.15%, #556EE6 100%);
+    border-radius: 5px 5px 0px 0px;
+    font-size: medium;
+    color: white;
+    padding: 1em;
+}
+
+.modal_content {
+    background: white;
+    width: 100%;
+    padding: 1em;
+    justify-content: center;
+    height: 8em;
+}
+
+.modal_content div {
+    cursor: pointer;
+    float: right;
+    margin-top: 1em;
+    padding: 0.7em 1em;
+    color: white;
+    background: #556EE6;
+    margin: 0 0.2em;
+    border-radius: 5px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
 }
