@@ -29,6 +29,12 @@ nav > a:focus {
 }
 
 .absolute{
-    position: absolute!important;
-    z-index: 2;
+    position: relative !important;
+    z-index: 10 !important;
+    
+}
+
+.bi-diagram {
+    background: none !important;
+    box-shadow: none !important;
 }

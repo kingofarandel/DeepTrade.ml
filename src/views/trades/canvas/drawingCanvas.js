@@ -1,45 +1,64 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import ReactDOM from "react-dom";
-import { gridData } from '../../../config/constant'
-import * as SRD from "storm-react-diagrams";
-import "storm-react-diagrams/dist/style.min.css";
-import "./styles.css";
+import { gridData } from '../../../config/constant';
+
+import "beautiful-react-diagrams/styles.css";
+import Diagram, { createSchema, useSchema } from "beautiful-react-diagrams";
+
+// the diagram model
+const initialSchema = createSchema({
+    nodes: [
+      {
+        id: "node-1",
+        content: "Bitcoin",
+        coordinates: [250, 60],
+        inputs: [{ id: "port-11", alignment: "left" }],
+        outputs: [{ id: "port-12", alignment: "right" }]
+      },
+      {
+        id: "node-2",
+        content: "Ethereum",
+        coordinates: [100, 200],
+        inputs: [{ id: "port-21", alignment: "left" }],
+        outputs: [{ id: "port-22", alignment: "right" }]
+      },
+      {
+        id: "node-3",
+        content: "Binance Smartchain",
+        coordinates: [250, 220],
+        inputs: [{ id: "port-31", alignment: "left" }],
+        outputs: [{ id: "port-32", alignment: "right" }]
+      },
+      {
+        id: "node-4",
+        content: "USDT",
+        coordinates: [400, 200],
+        inputs: [{ id: "port-41", alignment: "left" }],
+        outputs: [{ id: "port-42", alignment: "right" }]
+      }
+    ],
+    links: [
+      { input: "node-1", output: "node-2" },
+      { input: "node-1", output: "node-3" },
+      { input: "node-1", output: "node-4" },
+    ]
+  });
+
+  const UncontrolledDiagram = () => {
+    // create diagrams schema
+    const [schema, { onChange }] = useSchema(initialSchema);
+  
+    return (
+      <div style={{ height: "32.5rem"}} >
+        <Diagram schema={schema} onChange={onChange} />
+      </div>
+    );
+  };
+
 
 function DrawingCanvas() {
+    
+    const [ready, setReady] = useState(false);
     const canvasRef = useRef();
-    const [diagram, setDiagram] = useState();
-
-    const init = () => {
-        const engine = new SRD.DiagramEngine();
-        engine.installDefaultFactories();
-
-        const model = new SRD.DiagramModel();
-
-        const node1 = new SRD.DefaultNodeModel("BTC", "rgb(220,220,220)");
-        const port1 = node1.addOutPort("Out");
-        const port4 = node1.addOutPort("in");
-        node1.setPosition(100, 100);
-        node1.width = 1000;
-
-        const node2 = new SRD.DefaultNodeModel("BNB", "rgb(220,220,220)");
-        const port2 = node2.addInPort("In");
-        node2.setPosition(400, 100);
-
-        const node3 = new SRD.DefaultNodeModel("ETH", "rgb(220,220,220)");
-        const port3 = node3.addInPort("in");
-        node3.setPosition(200, 400);
-        const link1 = port1.link(port2);
-        link1.color = 'yellow';
-        const link2 = port1.link(port3);
-        link2.color = 'purple';
-        const link3 = port2.link(port3);
-        link3.color = 'purple';
-        model.addAll(node1, node2, node3, link1, link2, link3);
-
-        engine.setDiagramModel(model);
-
-        setDiagram(engine);
-    }
 
     const drawBoard = () => {
         const canvas = canvasRef.current;
@@ -60,37 +79,29 @@ function DrawingCanvas() {
             ctx.drawImage(img, 0, 0);
             DOMURL.revokeObjectURL(url);
         }
-        img.src = url;        
+        img.src = url;
+        setReady(true);
     };
 
     useEffect(() => {
-        init();
         drawBoard();
 
     }, [])
 
-    console.log(diagram);
-
-    if(diagram == null)
-        init();
-    else
-        return (
-            <Fragment>
-                
-                <div id = "sporeContainer">
-                    <canvas id="mainCanvas" className='main-canvas-container' ref={canvasRef}>
-                    
-                    </canvas>
-                    <SRD.DiagramWidget
-                            style={{position:'absolute'}}
-                            className="srd-demo-canvas"
-                            diagramEngine={diagram}
-                        />
-                    
-                    
+    
+    return (
+        <Fragment>
+            <div id = "sporeContainer">
+                <canvas id="mainCanvas" className='main-canvas-container' ref={canvasRef}>
+                </canvas>
+                <div className='absolute' >
+                    {ready == true && <UncontrolledDiagram />}
                 </div>
-            </Fragment>
-        );
+                
+            </div>
+            
+        </Fragment>
+    );
 }
 
 export default DrawingCanvas;
