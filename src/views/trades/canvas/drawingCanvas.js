@@ -48,7 +48,7 @@ const initialSchema = createSchema({
     const [schema, { onChange }] = useSchema(initialSchema);
   
     return (
-      <div style={{ height: "32.5rem"}} >
+      <div style={{ height: "47rem"}} >
         <Diagram schema={schema} onChange={onChange} />
       </div>
     );
