@@ -4,34 +4,35 @@ import { gridData } from '../../../config/constant';
 
 import "beautiful-react-diagrams/styles.css";
 import Diagram, { createSchema, useSchema } from "beautiful-react-diagrams";
+import DiagramComp from './diaComp';
 
 // the diagram model
 const initialSchema = createSchema({
     nodes: [
       {
         id: "node-1",
-        content: "Bitcoin",
+        content: <DiagramComp string = "Bitcoin" img="svg"/>,
         coordinates: [250, 60],
         inputs: [{ id: "port-11", alignment: "left" }],
         outputs: [{ id: "port-12", alignment: "right" }]
       },
       {
         id: "node-2",
-        content: "Ethereum",
+        content: <DiagramComp string = "Bitcoin" img="svg"/>,
         coordinates: [100, 200],
         inputs: [{ id: "port-21", alignment: "left" }],
         outputs: [{ id: "port-22", alignment: "right" }]
       },
       {
         id: "node-3",
-        content: "Binance Smartchain",
+        content: <DiagramComp string = "Bitcoin" img="svg"/>,
         coordinates: [250, 220],
         inputs: [{ id: "port-31", alignment: "left" }],
         outputs: [{ id: "port-32", alignment: "right" }]
       },
       {
         id: "node-4",
-        content: "USDT",
+        content: <DiagramComp string = "Bitcoin" img="svg"/>,
         coordinates: [400, 200],
         inputs: [{ id: "port-41", alignment: "left" }],
         outputs: [{ id: "port-42", alignment: "right" }]
