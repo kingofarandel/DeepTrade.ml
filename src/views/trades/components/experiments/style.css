@@ -1,0 +1,18 @@
+.filterText {
+    border: 1px solid silver;
+    
+
+}
+
+.header {
+    width: 15em;
+    padding: 0.5em;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.pink {
+    color:pink;
+    border-color: pink;
+
+}

@@ -49,9 +49,17 @@ nav > a:focus {
     box-shadow: none !important;
 }
 
+.Overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+}
 
 
-.Modal {
+.exitModal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,7 +76,7 @@ nav > a:focus {
   z-index: 100 !important;
 }
 
-.modal_head {
+.exit_modal_head {
     background: linear-gradient(90.92deg, #495FCB 0.15%, #556EE6 100%);
     border-radius: 5px 5px 0px 0px;
     font-size: medium;
@@ -76,7 +84,7 @@ nav > a:focus {
     padding: 1em;
 }
 
-.modal_content {
+.exit_modal_content {
     background: white;
     width: 100%;
     padding: 1em;
@@ -84,7 +92,7 @@ nav > a:focus {
     height: 8em;
 }
 
-.modal_content div {
+.exit_modal_content div {
     cursor: pointer;
     float: right;
     margin-top: 1em;
@@ -95,11 +103,52 @@ nav > a:focus {
     border-radius: 5px;
 }
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0,0,0,.4);
-}
+.accountModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    /* padding: 1em; */
+    min-width: 30em;
+    max-width: 100%;
+    color: #2E3446;
+    /* background-color: #fff; */
+    background: transparent;
+    /* border-radius: 1em; */
+    transform: translate(-50%, -50%);
+    outline: transparent;
+    z-index: 100 !important;
+  }
+  
+  .account_modal_head {
+      background: #2E3446;
+      border-radius: 5px 5px 0px 0px;
+      font-size: medium;
+      color: white;
+      padding: 1em;
+  }
+  
+  .account_modal_content {
+      background: white;
+      width: 100%;
+      padding: 1em;
+      justify-content: center;
+      height: 20em;
+  }
+  
+  .account_modal_content div {
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
+      margin-top: 1em;
+      padding: 0.2em 0;
+      margin: 0 0.2em;
+  }
+
+  .accountNameText {
+      width: 100%;
+      background: rgb(240, 240, 240);
+      padding: 1em;
+      border: none;
+  }
+

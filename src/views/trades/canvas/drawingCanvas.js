@@ -60,7 +60,8 @@ function DrawingCanvas() {
     
     const [ready, setReady] = useState(false);
     const canvasRef = useRef();
-    const [showModal, setShowModal] = useState(false);
+    const [exit, setExit] = useState(false);
+    const [accountSet, setAccountSet] = useState(false);
 
     const drawBoard = () => {
         const canvas = canvasRef.current;
@@ -92,19 +93,27 @@ function DrawingCanvas() {
 
 
     const handleOpenModal = () => {
-        setShowModal(true);
+        setExit(true);
     }
     
     const handleCloseModal = () => {
-        setShowModal(false);
+        setExit(false);
+    }
+
+    const handleOpenAccountModal = () => {
+        setAccountSet(true)
+    }
+
+    const handleCloseAccountModal = () => {
+        setAccountSet(false);
     }
 
     
     return (
         <>
         <Fragment>
-            <div id = "sporeContainer" onDoubleClick={handleOpenModal}>
-                <canvas id= {showModal == true ?  "mainCanvas_hidden" : 'mainCanvas' } className='main-canvas-container' ref={canvasRef}>
+            <div id = "sporeContainer" onKeyUp={handleOpenModal} onDoubleClick = {handleOpenAccountModal}>
+                <canvas id= {accountSet == true ?  "mainCanvas_hidden" : 'mainCanvas' } className='main-canvas-container' ref={canvasRef}>
                 </canvas>
                 <div className='relativeZ10' >
                     {ready == true && <UncontrolledDiagram />}
@@ -114,23 +123,49 @@ function DrawingCanvas() {
             
         </Fragment>
         <div>
-        {ready == true &&
+        {/* {ready == true && */}
             <ReactModal 
-            isOpen={showModal}
+            isOpen={exit}
             contentLabel="Minimal Modal Example"
-            className="Modal"
+            className="exitModal"
             overlayClassName="Overlay"
             onRequestClose={handleCloseModal}
             >
-            <div className = "modal_head">DeepTrade.ML</div>
-            <div className = "modal_content">
+            <div className = "exit_modal_head">DeepTrade.ML</div>
+            <div className = "exit_modal_content">
                 <p>There are unsaved changes in this scenario</p>
                 <div onClick={handleCloseModal}>Save changes</div>
                 <div style={{ background: "#888"}} onClick={handleCloseModal}>Discard Changes</div>
             </div>
             
             </ReactModal>
-        }
+
+            <ReactModal 
+            isOpen={accountSet}
+            contentLabel="Minimal Modal Example"
+            className="accountModal"
+            overlayClassName="Overlay"
+            onRequestClose={handleCloseAccountModal}
+            >
+            <div className = "account_modal_head">SET UP YOUR ACCOUNT</div>
+            <div className = "account_modal_content">
+                <p>Account Name</p>
+                <input className='accountNameText' placeholder = 'Name'/>
+                <p style = {{marginTop:"1em"}}>Your Broker</p>
+                <select className='accountNameText'  >
+                    <option>Broker</option>
+                    <option>Destoryer</option>
+                </select>
+                <div>
+                    <div>API Key:</div><div>handsome920112</div>
+                </div>
+                <div>
+                    <div>Secret Key:</div><div>*******</div>
+                </div>
+            </div>
+            
+            </ReactModal>
+        {/* } */}
         </div>
         </>
     );
