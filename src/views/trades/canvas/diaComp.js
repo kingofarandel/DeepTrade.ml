@@ -2,10 +2,11 @@ import React from 'react';
 
 
 const DiagramComp = ({string, img}) => {
+    let url = "/images/dashboard/images/" + img + ".svg";
   return (
   <>
     <div>{string}</div>
-    <img src = "/images/dashboard/images/rewards.svg"></img>
+    <img src = {url}></img>
   </>
   );
 

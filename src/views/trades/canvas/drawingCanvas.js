@@ -11,28 +11,28 @@ const initialSchema = createSchema({
     nodes: [
       {
         id: "node-1",
-        content: <DiagramComp string = "Bitcoin" img="svg"/>,
+        content: <DiagramComp string = "Rewards" img="rewards"/>,
         coordinates: [250, 60],
         inputs: [{ id: "port-11", alignment: "left" }],
         outputs: [{ id: "port-12", alignment: "right" }]
       },
       {
         id: "node-2",
-        content: <DiagramComp string = "Bitcoin" img="svg"/>,
+        content: <DiagramComp string = "State" img="state"/>,
         coordinates: [100, 200],
         inputs: [{ id: "port-21", alignment: "left" }],
         outputs: [{ id: "port-22", alignment: "right" }]
       },
       {
         id: "node-3",
-        content: <DiagramComp string = "Bitcoin" img="svg"/>,
+        content: <DiagramComp string = "Action" img="action"/>,
         coordinates: [250, 220],
         inputs: [{ id: "port-31", alignment: "left" }],
         outputs: [{ id: "port-32", alignment: "right" }]
-      },
+      }, 
       {
         id: "node-4",
-        content: <DiagramComp string = "Bitcoin" img="svg"/>,
+        content: <DiagramComp string = "Agent" img="agent"/>,
         coordinates: [400, 200],
         inputs: [{ id: "port-41", alignment: "left" }],
         outputs: [{ id: "port-42", alignment: "right" }]
@@ -41,7 +41,7 @@ const initialSchema = createSchema({
     links: [
       { input: "node-1", output: "node-2" },
       { input: "node-1", output: "node-3" },
-      { input: "node-1", output: "node-4" },
+      { input: "node-2", output: "node-4" },
     ]
   });
 
